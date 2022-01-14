@@ -1,16 +1,16 @@
 const apiRouter = require("express").Router();
 const db = require("../db/db.json");
 const {v4: uuidv4} = require("uuid");
-const {readFromFile, readAndAppend} = require("../helpers/fsUtils")
+const {readFromFile, readAndAppend, writeToFile} = require("../helpers/fsUtils")
 
 
 //add a read to this so it updates the new list
-apiRouter.get("/api/notes", (req,res)=> {
+apiRouter.get("/notes", (req,res)=> {
     readFromFile("./db/db.json").then((data)=> res.json(JSON.parse(data)));
     // res.sendFile(path.join(__dirname, "./db/db.json"))
     });
 
-apiRouter.get("/api/notes:id", (req,res) => {
+apiRouter.get("/notes:id", (req,res) => {
     const noteId = req.params.id;
     readFromFile("./db/db.json").then((data) =>JSON.parse(data))
     .then((json) => {
@@ -21,9 +21,9 @@ apiRouter.get("/api/notes:id", (req,res) => {
     });
 });
 //can add the fsUtils for a readAndAppend or just create it here
-apiRouter.post("/api/notes", (req,res)=>{
-    const{title, note} = req.body;
-    if(req.body.title && req.body.text){
+apiRouter.post("/notes", (req,res)=>{
+    const {title, text} = req.body;
+    if(req.body){
     const newNote ={
         title,
         text,
