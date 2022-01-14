@@ -25,22 +25,6 @@ app.use("/",htmlRouter);
 // );
 
 
-
-
 app.listen(PORT, () =>{
     console.log(`Now listening on PORT: ${PORT}`);
 });
-
-
-// app.get("/", (req,res) =>
-//     res.sendFile(path.json(_dirname,"/public/index.htlm"))
-// );
-
-// app.get("/api/notes", (req,res)=>{
-//     res.json(`${req.method} request received to get notes`);
-//     console.info(`${req.method} request received to get notes`);
-// });
-
-// app.post("/api/notes", (req,res) => {
-//     console.info(`${req.method} request reveived to add note`);
-// });

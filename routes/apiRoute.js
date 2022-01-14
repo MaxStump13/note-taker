@@ -7,7 +7,6 @@ const {readFromFile, readAndAppend, writeToFile} = require("../helpers/fsUtils")
 //add a read to this so it updates the new list
 apiRouter.get("/notes", (req,res)=> {
     readFromFile("./db/db.json").then((data)=> res.json(JSON.parse(data)));
-    // res.sendFile(path.join(__dirname, "./db/db.json"))
     });
 
 apiRouter.get("/notes:id", (req,res) => {
@@ -46,37 +45,3 @@ apiRouter.post("/notes", (req,res)=>{
 
 
 module.exports = apiRouter;
-
-
-//need to use a read file in get request that aligns after we save
-//also need to getandRender for on click active note
-
-//This only works with a class that uses the getNotes
-// router.get("/notes", (req, res)=>{
-//     db.getNotes().then(notes =>{
-//         res.json(notes);
-//     })
-//     .catch(err => {
-//         res.status(500).json(err);
-//     })
-// })
-
-//this only works with a class that uses getNotes and addNote
-// router.post("/notes", (reg,res)=> {
-//     console.log(req.body)
-//     db.addNote(req.body).then(note => {
-//         res.json(note)
-//     })
-//     .catch(err => {
-//         res.status(500).json(err)
-//     })
-// })
-
-
-//this only works with a class that uses getNotes and removeNote
-// router.delete("/notes/:id", (req,res) => {
-//     db.removeNote(req.params.id)
-//     .then(() => res.json({ok : true}))
-//     .catch(err => res.status(500).json(err))
-// })
-
