@@ -1,16 +1,12 @@
 [
     {
-        "title": "Test Title",
-        "text": "Test text"
+        "title": "This is my note maker",
+        "text": "To add a note, create a title and add text to the description. A save button will then appear in the top right. Click that and the note will be saved to the server. To access the note again, click on it in the left pane.",
+        "id": "b50061aa-55aa-4b7e-ba53-890e28958525"
     },
     {
-        "title": "Test Title",
-        "text": "Test text",
-        "id": "asdjkfasdfasdf"
-    },
-    {
-        "title": "sakdjfhas",
-        "text": "asncas",
-        "id": "385023ce-6904-4624-b77c-c38cd13bd539"
+        "title": "This is a test note",
+        "text": "this is a test",
+        "id": "f2fc70a4-6a4d-4c2e-a220-d26af7febb35"
     }
 ]

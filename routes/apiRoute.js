@@ -4,22 +4,22 @@ const {v4: uuidv4} = require("uuid");
 const {readFromFile, readAndAppend, writeToFile} = require("../helpers/fsUtils")
 
 
-//add a read to this so it updates the new list
+//uses fsUtils readFromFile to get db.json data 
 apiRouter.get("/notes", (req,res)=> {
     readFromFile("./db/db.json").then((data)=> res.json(JSON.parse(data)));
     });
 
-apiRouter.get("/notes:id", (req,res) => {
-    const noteId = req.params.id;
-    readFromFile("./db/db.json").then((data) =>JSON.parse(data))
-    .then((json) => {
-        const result = json.filter((note) => note.id === noteId);
-        return result.length >0
-            ? res.json(result)
-            : res.json("no note with that ID");
-    });
-});
-//can add the fsUtils for a readAndAppend or just create it here
+// apiRouter.get("/notes:id", (req,res) => {
+//     const noteId = req.params.id;
+//     readFromFile("./db/db.json").then((data) =>JSON.parse(data))
+//     .then((json) => {
+//         const result = json.filter((note) => note.id === noteId);
+//         return result.length >0
+//             ? res.json(result)
+//             : res.json("no note with that ID");
+//     });
+// });
+// if title and text have content uses readAndAppend from fsUtils to add new note to db.json
 apiRouter.post("/notes", (req,res)=>{
     const {title, text} = req.body;
     if(req.body){
